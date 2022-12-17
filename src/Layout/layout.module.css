@@ -1,0 +1,15 @@
+.contentSection {
+    width: calc(100% - 240px);
+    /* height: 100%; */
+    margin-left: auto;
+}
+
+.mainArea {
+    padding-top: 30px;
+}
+
+@media screen and (max-width:768px) {
+    .contentSection {
+        width: 100%;
+    }
+}

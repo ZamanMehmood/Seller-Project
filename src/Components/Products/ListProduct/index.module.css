@@ -1,0 +1,103 @@
+.head3 {
+  font-weight: bolder;
+}
+
+.btnCreateNew {
+  border: none;
+  padding: 5px 30px;
+  color: white;
+  background-color: #1c7be9;
+}
+
+.btnImportExport {
+  border: 1px solid gray;
+  padding: 4px 20px;
+  background-color: white;
+}
+
+.btnImportExport:hover {
+  background-color: #1c7be9;
+  color: white;
+  transition: all 0.5ms;
+}
+
+/* .form-control {
+  border-radius: none !important;
+  border: 1px solid darkgray !important;
+} */
+.cardLayout {
+  padding: 30px 35px
+}
+
+.searchInput {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #212529;
+  margin-left: -10px;
+  background-color: #fff;
+  border: 1px solid gray;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.sortingInputArea {
+  padding: 0px;
+}
+
+@media screen and (max-width: 786px) {
+  .sortingInputArea {
+    padding-top: 8px;
+    padding-right: 50px;
+  }
+}
+
+.productCard {
+  width: 160px;
+  padding: 5px 0px 10px 10px;
+  border: 1px solid lightgrey;
+  margin: 5px;
+}
+
+.imagePadding {
+  padding: 5px;
+}
+
+.priceText {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.titleText {
+  color: black;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.editBtn {
+  background: transparent;
+  border: 1px solid gray;
+}
+
+.editBtn:hover {
+  color: white;
+  background-color: #1c7be9;
+}
+
+.deleteBtn {
+  background: transparent;
+  color: red;
+  border: 1px solid gray;
+}
+
+.deleteBtn:hover {
+  background-color: red;
+  color: white;
+}

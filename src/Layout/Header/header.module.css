@@ -1,0 +1,76 @@
+.mrr35 {
+    padding: 10px 30px;
+}
+
+@media only screen and (max-width: 425px) {
+    .mrr35 {
+        padding: 10px 10px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .mrr35 {
+        padding: 10px 10px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .mrr35 {
+        padding: 10px 10px;
+    }
+}
+
+.headerHeight {
+    width: 100%;
+    /* left: 0;
+    z-index: 999;
+    position: fixed; */
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.profileMargin {
+    margin-right: 10px;
+    ;
+}
+
+.avatarSize {
+    width: 56px;
+    height: 56px;
+}
+
+.profileSection {
+    cursor: pointer;
+}
+
+.overlayCard {
+    width: 12rem;
+}
+
+.cardList {
+    text-align: center;
+    line-height: 2.8rem;
+    margin-top: 15px;
+    margin-right: 25px;
+    /* list-style-type: none; */
+}
+
+.listStyle {
+    cursor: pointer;
+}
+
+.listStyle:hover {
+    cursor: pointer;
+    color: darkblue;
+}
+
+.linkStyle {
+    margin-right: 12px;
+    color: black;
+    text-decoration: none;
+}
+
+.linkStyle:hover {
+    margin-right: 12px;
+    color: darkblue;
+}

@@ -1,0 +1,103 @@
+.head3 {
+  font-weight: bolder;
+}
+
+.btn-create-new {
+  border: none;
+  padding: 5px 30px;
+  color: white;
+  background-color: #1c7be9;
+}
+
+.btn-import-export {
+  border: 1px solid gray;
+  padding: 4px 20px;
+  background-color: white;
+}
+
+.btn-import-export:hover {
+  background-color: #1c7be9;
+  color: white;
+  transition: all 0.5ms;
+}
+
+/* .form-control {
+  border-radius: none !important;
+  border: 1px solid darkgray !important;
+} */
+.card-layout {
+  padding: 30px 35px
+}
+
+.search-input {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #212529;
+  margin-left: -10px;
+  background-color: #fff;
+  border: 1px solid gray;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.sorting-input-area {
+  padding: 0px;
+}
+
+@media screen and (max-width: 786px) {
+  .sorting-input-area {
+    padding-top: 8px;
+    padding-right: 50px;
+  }
+}
+
+.product-card {
+  width: 160px;
+  padding: 5px 0px 10px 10px;
+  border: 1px solid lightgrey;
+  margin: 5px;
+}
+
+.image-padding {
+  padding: 5px;
+}
+
+.price-text {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.title-text {
+  color: black;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.edit-btn {
+  background: transparent;
+  border: 1px solid gray;
+}
+
+.edit-btn:hover {
+  color: white;
+  background-color: #1c7be9;
+}
+
+.delete-btn {
+  background: transparent;
+  color: red;
+  border: 1px solid gray;
+}
+
+.delete-btn:hover {
+  background-color: red;
+  color: white;
+}

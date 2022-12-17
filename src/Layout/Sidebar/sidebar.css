@@ -1,0 +1,52 @@
+.item-gap {
+    line-height: 1.8rem;
+}
+
+.set-icon {
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+.my-nav-link {
+    color: #6a4848e0 !important; /*will change color of text within the element */
+}
+
+.my-nav-link:hover {
+background-color:#ede7f6; /*will change background-color of element on hover */
+color: #6e34eb !important; /*will change color of text within the element on hover */
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+}
+
+.my-nav-link-active {
+background-color: #ede7f6; /*will change background-color of element on hover */
+color: #6e34eb !important; /*will change color of text within the element on hover */
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+}
+.collapse-area {
+    padding-left: 30px;
+}
+.collapse-nav-link {
+    color: #6a4848e0 !important; /*will change color of text within the element */
+}
+
+.collapse-nav-link:hover {
+    background-color:rgb(225, 232, 235); /*will change background-color of element on hover */
+    color: #6e34eb !important; /*will change color of text within the element on hover */
+    border-radius: 20px;
+}
+
+.collapse-nav-link-active {
+    background-color: rgb(225, 232, 235); /*will change background-color of element on hover */
+    color: #6e34eb !important; /*will change color of text within the element on hover */
+    border-radius: 20px;
+}
+
+.sidebar {
+    width: 240px;
+    position: fixed;
+    height: 100%;
+    background-color: whitesmoke;
+}

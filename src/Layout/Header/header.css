@@ -1,0 +1,71 @@
+.mrr-35 {
+    padding: 10px 30px;
+}
+
+@media only screen and (max-width: 425px) {
+  .mrr-35 {
+        padding: 10px 10px;
+    }
+}
+@media only screen and (max-width: 375px) {
+  .mrr-35 {
+        padding: 10px 10px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+  .mrr-35 {
+        padding: 10px 10px;
+    }
+}
+/* .header-height {
+    height: 70px;
+    margin-bottom: 10px;
+} */
+.header-height {
+    width: 100%;
+    /* left: 0;
+    z-index: 999;
+    position: fixed; */
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.profile-margin {
+    margin-right: 10px;;
+}
+.avatar-size {
+    width: 56px;
+    height: 56px;
+}
+.profile-section {
+    cursor: pointer;
+}
+.overlay-card {
+    width: 12rem;
+}
+.card-list {
+    text-align: center;
+    line-height: 2.8rem;
+    margin-top: 15px;
+    margin-right: 25px;
+    /* list-style-type: none; */
+}
+.list-style {
+    cursor: pointer;
+}
+.list-style:hover {
+    cursor: pointer;
+    color: darkblue;
+}
+
+.link-style {
+    margin-right: 12px;
+    color: black;
+    text-decoration: none;
+}
+
+.link-style:hover {
+    margin-right: 12px;
+    color: darkblue;
+}

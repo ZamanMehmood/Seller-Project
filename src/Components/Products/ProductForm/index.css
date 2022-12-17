@@ -1,0 +1,64 @@
+.head3 {
+  font-weight: bolder;
+}
+.form-control {
+  border: 1px solid darkgray !important;
+}
+.form-control:focus {
+  box-shadow: none !important;
+}
+.form-select {
+  border: 1px solid darkgray !important;
+}
+.form-select:focus {
+  box-shadow: none !important;
+}
+.hr-line {
+    border: 1px solid black !important;
+}
+
+/* Custom File Input */
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+  border: 2px dashed rgb(122, 122, 122);
+  border-radius: 10px;
+  display: inline-block;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+/*PRreview Selected Files*/
+.selected-file {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 5px;
+  border: 1px solid rgb(122, 122, 122);
+  border-radius: 5px;
+}
+
+.image-size {
+  /* display: block; */
+  height: 107px;
+  width: 130px;
+}
+.image-size:hover  {
+  height: 107px;
+  width: 130px;
+  background-color: rgba(68, 53, 53, 0.6);
+  opacity:0.5;
+  transition: all 0.5s;
+}
+
+/* Remove Current selected file icon */
+.remove-item {
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-left: 50px;
+  cursor: pointer;
+}

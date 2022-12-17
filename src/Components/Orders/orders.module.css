@@ -1,0 +1,72 @@
+.head3 {
+    font-weight: bolder;
+}
+
+.pendingBtn {
+    cursor: pointer;
+    margin-right: 25px;
+    padding: 5px;
+    font-weight: 700;
+    color: #ef3535;
+}
+
+.pendingBtnActive {
+    cursor: pointer;
+    margin-right: 25px;
+    padding: 5px;
+    font-weight: 700;
+    color: #ef3535;
+    padding: 5px;
+    border-bottom: 3px solid #ef3535;
+}
+
+,
+.pendingBtn:hover {
+    padding: 5px;
+    border-bottom: 3px solid #ef3535;
+}
+
+.completedBtn {
+    cursor: pointer;
+    padding: 5px;
+    font-weight: 700;
+    color: #04ba04;
+}
+
+.completedBtnActive {
+    cursor: pointer;
+    padding: 5px;
+    font-weight: 700;
+    color: #04ba04;
+    padding: 5px;
+    border-bottom: 3px solid #04ba04;
+}
+
+.completedBtn:hover {
+    padding: 5px;
+    border-bottom: 3px solid #04ba04;
+}
+
+.exportBtn {
+    margin-right: 10px;
+    padding: 3px 15px;
+    background-color: rgb(132 132 244);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.dateInput {
+    border: 1px solid darkgray;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 1rem;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid gray;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.dateInput:focus {
+    outline: none;
+}

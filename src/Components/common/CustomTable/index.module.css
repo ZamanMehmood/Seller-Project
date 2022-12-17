@@ -1,0 +1,60 @@
+.tableContainer {
+    width: 100% !important;
+    overflow-x: scroll;
+}
+
+.tableContainer {
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.tableContainer::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+.orderIdTd {
+    min-width: 140px;
+}
+
+.customerDetailTd {
+    min-width: 230px;
+}
+
+.itemsTd {
+    min-width: 200px;
+}
+
+.totalTd {
+    min-width: 170px;
+}
+
+.dateTd {
+    min-width: 200px;
+}
+
+.actionTd {
+    min-width: 60px;
+}
+
+
+@media (max-width: 786px) {
+    .tableContainer {
+        width: 100% !important;
+        overflow-x: scroll;
+    }
+}
+
+tr {
+    border: 0;
+    display: flex;
+    margin: 10px;
+}
+
+.solid {
+    padding: 10px;
+    border: 1px solid darkgrey;
+    border-radius: 8px;
+}

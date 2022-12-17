@@ -1,0 +1,64 @@
+.sidebar {
+    width: 240px;
+    position: fixed;
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+.itemGap {
+    line-height: 1.8rem;
+}
+
+.setIcon {
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+.myNavLink {
+    color: #6a4848e0 !important;
+    /*will change color of text within the element */
+}
+
+.myNavLink:hover {
+    background-color: #ede7f6;
+    /*will change background-color of element on hover */
+    color: #6e34eb !important;
+    /*will change color of text within the element on hover */
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.myNavLinkActive {
+    background-color: #ede7f6;
+    /*will change background-color of element on hover */
+    color: #6e34eb !important;
+    /*will change color of text within the element on hover */
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.collapseArea {
+    padding-left: 30px;
+}
+
+.collapseNavLink {
+    color: #6a4848e0 !important;
+    /*will change color of text within the element */
+}
+
+.collapseNavLink:hover {
+    background-color: rgb(225, 232, 235);
+    /*will change background-color of element on hover */
+    color: #6e34eb !important;
+    /*will change color of text within the element on hover */
+    border-radius: 20px;
+}
+
+.collapseNavLinkActive {
+    background-color: rgb(225, 232, 235);
+    /*will change background-color of element on hover */
+    color: #6e34eb !important;
+    /*will change color of text within the element on hover */
+    border-radius: 20px;
+}
