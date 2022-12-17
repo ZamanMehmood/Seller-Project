@@ -73,6 +73,7 @@ const ProductForm = ({ paramId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("handle submit",formCategoryValues)
     const { name, description,brandName,price,currency,sku,quantity,weight,image} = formValues;
     const {categories,subCategories,subSubCategories} = formCategoryValues;
     
@@ -91,7 +92,7 @@ const ProductForm = ({ paramId }) => {
       weight,
       image,
     }; 
-
+    console.log("Front Image", mediaFiles )
     let formData = new FormData();
     formData.append('name',name);   
     formData.append('description',description);
@@ -104,7 +105,7 @@ const ProductForm = ({ paramId }) => {
     formData.append('sku',sku);
     formData.append('quantity',quantity);
     formData.append('weight',weight);
-    formData.append('Image',image)
+    formData.append('Image',mediaFiles[0])
 
     const config = {
       headers: { 'content-type': 'multipart/form-data' }
@@ -128,8 +129,8 @@ const ProductForm = ({ paramId }) => {
     ];
   const handleChangeCategory = (e) => {
     console.log("formCategoryValue",e);
-        setFormCategoryValues(e.value)
-    // if (e && e.value > 0) {
+      setFormCategoryValues({...formCategoryValues,categories:e.value})
+     // if (e && e.value > 0) {
     //   setCategory({ category: e.value });
     // } else {
     //   setCategory({ category: "" });
@@ -510,3 +511,6 @@ const ProductForm = ({ paramId }) => {
 };
 
 export default ProductForm;
+
+// image
+// category ID
