@@ -1,74 +1,23 @@
-// import { useState } from 'react';
+ 
+// import { useEffect, useState } from 'react';
 // import { Card, Container } from "react-bootstrap";
 // import { IconChevronRight } from '@tabler/icons';
 // import RenderCard from './renderCard';
 // import s from './index.module.css'
+// import axios from 'axios';
 
 // const Category = () => {
-//     let categories = [
-//         {
-//             id: 1,
-//             name: 'Groceries & Pets',
-//         },
-//         {
-//             id: 2,
-//             name: "Women's Fashion",
-//         },
-//         {
-//             id: 3,
-//             name: "Men's Fashion",
-//         },
-//         {
-//             id: 4,
-//             name: 'Babies & Toys',
-//         },
-//         {
-//             id: 5,
-//             name: 'Home & Lifestyle',
-//         },
-//         {
-//             id: 6,
-//             name: 'Electronic Devices',
-//         },
-//         {
-//             id: 7,
-//             name: 'Electronic Accessories',
-//         },
-//         {
-//             id: 8,
-//             name: 'TV & Home Appliances',
-//         },
-//         {
-//             id: 9,
-//             name: 'Sports & Outdoo',
-//         },
-//         {
-//             id: 10,
-//             name: 'Watches, Bags'
-//         },
-
-//         {
-//             id: 6,
-//             name: 'Electronic Devices',
-//         },
-//         {
-//             id: 7,
-//             name: 'Electronic Accessories',
-//         },
-//         {
-//             id: 8,
-//             name: 'TV & Home Appliances',
-//         },
-//         {
-//             id: 9,
-//             name: 'Sports & Outdoo',
-//         },
-//         {
-//             id: 10,
-//             name: 'Watches, Bags'
-//         },
-
-//     ];
+//     console.log("props ==>")
+//      const [data,setData] = useState([]);
+  
+//        useEffect(()=>{
+//         const apiHandler = async() =>{
+//                   const data = await axios.get("http://localhost:8081/categories");
+//                    console.log(data)
+//                    setData(data.data)
+//                 };
+//                  apiHandler();
+//        },[])
 
 //     return (
 //         <Container className="pb-5">
@@ -76,7 +25,9 @@
 //             <div className="row pt-5">
 //                 <div className="col-md-4">
 //                     <h5 className={s.head5}>Main Categories</h5>
-//                     <RenderCard list={categories} />
+//                     {/* <RenderCard list={categories} /> */}
+//                     <RenderCard list={data} />
+
 //                 </div>
 
 //                 <div className="col-md-4">
@@ -115,6 +66,7 @@
 // export default Category;
 
 
+ 
 import { useEffect, useState } from 'react';
 import { Card, Container } from "react-bootstrap";
 import { IconChevronRight } from '@tabler/icons';
@@ -123,7 +75,8 @@ import s from './index.module.css'
 import axios from 'axios';
 
 const Category = () => {
-     const [data,setData] = useState([]);
+    console.log("props ==>")
+     const [data,setData] = useState([]);   // all categories are in this array
   
        useEffect(()=>{
         const apiHandler = async() =>{
@@ -140,9 +93,8 @@ const Category = () => {
             <div className="row pt-5">
                 <div className="col-md-4">
                     <h5 className={s.head5}>Main Categories</h5>
-                    {/* <RenderCard list={categories} /> */}
-                    <RenderCard list={data} />
-
+                    <RenderCard list={data} data={data} setData={setData} />                 
+                     {/* // send data array to RenderCard component and recieve their */}
                 </div>
 
                 <div className="col-md-4">
