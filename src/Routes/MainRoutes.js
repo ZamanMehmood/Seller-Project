@@ -12,7 +12,8 @@ import ListProduct from './../Components/Products/ListProduct/index';
 import Orders from './../Components/Orders/index';
 import Customers from './../Components/Customers/index';
 import AddProduct from './../Components/Products/CreateProduct/index';
-import EditProduct from './../Components/Products/EditProduct/index';
+// import EditProduct from './../Components/Products/EditProduct/index';
+import EditProduct from './../Components/Products/ProductForm/EditProduct'
 import Category from './../Components/Category/index';
 
 // ==============================|| MAIN ROUTING ||============================== //
@@ -37,6 +38,10 @@ const MainRoutes = {
             path: '/add-product',
             element: <AddProduct />
         },
+        // {
+        //     path: '/edit-product/:id',
+        //     element: <EditProduct />
+        // },
         {
             path: '/edit-product/:id',
             element: <EditProduct />

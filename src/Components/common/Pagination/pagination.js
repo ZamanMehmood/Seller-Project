@@ -16,21 +16,13 @@ const PaginationComponent = ({ }) => {
                 <Pagination.Next><b className='text-dark'>Next</b></Pagination.Next>
             </Pagination>
         </div>
-
-        // <Pagination className='paged-area'>
-        //     <Pagination.Prev> <b className='text-dark'>Previous</b></Pagination.Prev>
-        //     <Pagination.Item>{1}</Pagination.Item>
-        //     <Pagination.Ellipsis />
-        //     <Pagination.Item>{10}</Pagination.Item>
-        //     <Pagination.Item>{11}</Pagination.Item>
-        //     <Pagination.Item active>{12}</Pagination.Item>
-        //     <Pagination.Item>{13}</Pagination.Item>
-        //     <Pagination.Item disabled>{14}</Pagination.Item>
-        //     <Pagination.Ellipsis />
-        //     <Pagination.Item>{20}</Pagination.Item>
-        //     <Pagination.Next><b className='text-dark'>Next</b></Pagination.Next>
-        // </Pagination>
     );
 }
 
 export default PaginationComponent;
+
+ 
+
+//on Delete confirm pop-up 
+// set Loader on off
+// 
