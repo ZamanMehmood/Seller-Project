@@ -15,6 +15,7 @@ import AddProduct from './../Components/Products/CreateProduct/index';
 // import EditProduct from './../Components/Products/EditProduct/index';
 import EditProduct from './../Components/Products/ProductForm/EditProduct'
 import Category from './../Components/Category/index';
+import Profile from '../Layout/Header/profile';
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -77,6 +78,10 @@ const MainRoutes = {
         {
             path: '/settings',
             element: <Dashboard />
+        },
+        {
+            path: '/profile',
+            element: <Profile />
         }
     ]
 };

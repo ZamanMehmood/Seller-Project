@@ -7,10 +7,13 @@ import s from './header.module.css'
 
 const Header = () => {
     const navigate = useNavigate();
-    const Logout = () => {
-        // perfrom logout
-        navigate('/login')
-    }
+  
+    const Logout=()=>{                      // when we log out remove the token from localstorage
+        localStorage.removeItem("accessToken");
+        navigate("/login");
+      };
+
+
     const popoverCard = (
         <Card className={`${s.overlayCard} shadow`}>
             <Nav className={`${s.cardList} d-flex flex-column`}>
@@ -46,3 +49,4 @@ const Header = () => {
 }
 
 export default Header;
+ 
