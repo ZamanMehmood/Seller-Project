@@ -26,7 +26,7 @@ const Login = () => {
     };
 
     const loginCall = await axios.post(
-      "http://localhost:8081/admin/adminLogin",
+      "http://localhost:8081/admin/loginAdmin",
       pyaload
     );
     console.log("loginCall", loginCall);

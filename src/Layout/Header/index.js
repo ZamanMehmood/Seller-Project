@@ -3,9 +3,10 @@ import { useNavigate, Link } from 'react-router-dom';
 import avatar from '../../assets/images/profile-avatar.jpg';
 import { IconUser, IconLogout } from '@tabler/icons';
 import { OverlayTrigger, Card, Nav, NavItem } from 'react-bootstrap';
-import s from './header.module.css'
+import s from './header.module.css';
 
 const Header = () => {
+    // console.log("Admin profile in header component", adminProfile);
     const navigate = useNavigate();
   
     const Logout=()=>{                      // when we log out remove the token from localstorage
@@ -13,11 +14,11 @@ const Header = () => {
         navigate("/login");
       };
 
-
     const popoverCard = (
         <Card className={`${s.overlayCard} shadow`}>
             <Nav className={`${s.cardList} d-flex flex-column`}>
                 <NavItem>
+                {/* <Link to={`/edit-product/${product._id}`}> */}
                     <Link className={s.linkStyle} to='/profile'>
                         <IconUser stroke={1.5} size="1.5rem" /> Profile
                     </Link>
