@@ -9,7 +9,7 @@ import Routes from './Routes/index';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       {/* <Layout> */}
       <BrowserRouter>
         <Routes />

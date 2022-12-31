@@ -8,9 +8,10 @@ import s from "./index.module.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
-// import Loading from 'react-fullscreen-loading';
-// import { Card, Button } from "react-bootstrap";
-// import EditProduct from "../ProductForm/EditProduct";
+import Loader from "../../Loader";
+// 
+import { useDispatch, useSelector } from "react-redux";
+// 
 
 const ListProduct = () => {
   const [products, setProducts] = useState([]);
@@ -20,6 +21,13 @@ const ListProduct = () => {
   const [pageLimit, setPageLimit] = useState(10);  // limit the page records (sent to back-end via api parametes), exports.getAllProducts 
   const [pageSize, setPageSize] = useState(); // total records in mongodb
 //
+ // state for loader
+ const [loading , setLoading] = useState(true);
+ //
+ const dispatch = useDispatch();
+  //  take initial states of reducers
+  const productsArr = useSelector((state) => state?.ProductsReducer?.products);
+      console.log("this is products array", productsArr)
 
 //   console.log("pagesizeeeeeeeeeeeeeeeeeeee ====>", pageSize)
   useEffect(() => {
@@ -27,16 +35,21 @@ const ListProduct = () => {
       const data = await axios.get(
         `http://localhost:8081/products/getProducts?page=${pageNumber}&pageLimit=${pageLimit}`
       );
-    //   console.log("get products api call ==>", data);
-    //    console.log(data.data.pagination.total)
-      setProducts(data.data.data);
-      setPageSize(data.data.pagination.total)
-
+          if(data.data.success == true){
+          // setLoading(false)
+          setProducts(data.data.data);
+          setPageSize(data.data.pagination.total);
+        }
+        
+    
+      setLoading(false)
     };
     apiHandler();
   }, [pageNumber]);  // on page change run useEffect
+ 
 
   const paginate = (number) => {
+    setLoading(true)
     setPageNumber(number);
   };
 
@@ -59,9 +72,8 @@ const ListProduct = () => {
     }
   };
   return (
-    <div>
-    {/* <Loading loading background="#2ecc71" loaderColor="#3498db" /> */}
-
+    // {products?products: <Loader />}
+    <div > 
     <Container>
       {/* Heading Section */}
       <div className="d-flex flex-row pb-4">
@@ -85,6 +97,7 @@ const ListProduct = () => {
         </div>
       </div>
       {/* Products Card Section*/}
+      
       <Card className={s.cardLayout}>
         {/* Searching and Sorting Section */}
         <div className="row pb-4">
@@ -128,6 +141,9 @@ const ListProduct = () => {
           </div>
         </div>
         {/* Listing Products */}
+        {loading ? <Loader />:
+
+
         <div className="row">
           {products.map((product, index) => (
             <div key={index} className={`${s.productCard} col`}>
@@ -196,6 +212,7 @@ const ListProduct = () => {
             </div>
           ))}
         </div>
+}
         {/* <EditProduct products={products} setProducts={setProducts} /> */}
         {/* Pagination */}
         <PaginationComponent 
@@ -205,7 +222,9 @@ const ListProduct = () => {
         paginate={paginate}
         />
       </Card>
+
     </Container>
+    
     </div>
   );
 };
