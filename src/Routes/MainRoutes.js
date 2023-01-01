@@ -48,6 +48,10 @@ const MainRoutes = {
             element: <EditProduct />
         },
         {
+            path: '/delete-product/:id',
+            element: <ListProduct />
+        },
+        {
             path: '/category',
             element: <Category />
         },

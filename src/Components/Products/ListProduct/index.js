@@ -9,8 +9,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Loader from "../../Loader";
+import { listProducts , deleteProduct} from "../../../redux/actions/action";
 // 
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+
 // 
 
 const ListProduct = () => {
@@ -18,34 +21,65 @@ const ListProduct = () => {
   const [showModal, setShowModal] = useState(false);
   // sates for backend pagination
   const [pageNumber, setPageNumber] = useState(1); // current page number  (sent to back-end via api parametes),exports.getAllProducts
-  const [pageLimit, setPageLimit] = useState(10);  // limit the page records (sent to back-end via api parametes), exports.getAllProducts 
+  const [pageLimit] = useState(10);  // limit the page records (sent to back-end via api parametes), exports.getAllProducts 
   const [pageSize, setPageSize] = useState(); // total records in mongodb
-//
  // state for loader
  const [loading , setLoading] = useState(true);
- //
  const dispatch = useDispatch();
-  //  take initial states of reducers
-  const productsArr = useSelector((state) => state?.ProductsReducer?.products);
-      console.log("this is products array", productsArr)
+ const params = useParams();
 
-//   console.log("pagesizeeeeeeeeeeeeeeeeeeee ====>", pageSize)
-  useEffect(() => {
-    const apiHandler = async () => {
-      const data = await axios.get(
-        `http://localhost:8081/products/getProducts?page=${pageNumber}&pageLimit=${pageLimit}`
-      );
-          if(data.data.success == true){
-          // setLoading(false)
-          setProducts(data.data.data);
-          setPageSize(data.data.pagination.total);
-        }
+
+ const productsData = useSelector((state) => state?.ProductsReducer?.productsArray);
+ const productsdelete = useSelector((state) => state?.ProductsReducer?.deleteProduct);
+ console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa",productsdelete)
+
+
+ console.log("pppppppppppppppp",productsData)
+
+ 
+      //  console.log("ppppppppppppppp",products?.data?.data[1]._id);
+      //  console.log("toal",productsData?.data?.pagination?.total);
+
+ useEffect(() => {
+  if(productsData?.data?.data?.length > 0){
+    setProducts(productsData?.data?.data);
+    setPageSize(productsData?.data?.pagination?.total);
+    setLoading(false)
+  }else {
+    console.log("length is 0");
+  }
+  //  setProducts(productsData)
+ },[productsData])
+
+ console.log("reducer productss arry in react component", products);
+ 
+ 
+useEffect(()=>{
+  dispatch(listProducts(pageNumber,pageLimit));
+},[pageNumber])
+
+
+// useEffect(()=>{
+//     dispatch(deleteProduct(id))
+// },[])
+  // useEffect(() => {
+
+  //   // props.listProducts(pageNumber,pageLimit)
+  //   const apiHandler = async () => {
+  //     const data = await axios.get(
+  //       `http://localhost:8081/products/getProducts?page=${pageNumber}&pageLimit=${pageLimit}`
+  //     );
+  //         if(data.data.success == true){
+  //         // setLoading(false)
+  //         setProducts(data.data.data);
+  //         setPageSize(data.data.pagination.total);
+  //       }
         
     
-      setLoading(false)
-    };
-    apiHandler();
-  }, [pageNumber]);  // on page change run useEffect
+  //     setLoading(false)
+  //   };
+  //   apiHandler();
+  // }, [pageNumber]);  // on page change run useEffect
  
 
   const paginate = (number) => {
@@ -53,24 +87,31 @@ const ListProduct = () => {
     setPageNumber(number);
   };
 
-  const deleteProduct = async (id) => {
-    // this id i recive from where i am calling this function onClick.
-    console.log("this is handle delate function");
-    console.log("products array", id);
+ 
+   const removeProduct = () => {
+      console.log("productsData in deleteProduct function ==>", params.id)
+       dispatch(deleteProduct(params.id));
+   }
 
-    // let productId = id;
-    const apiData = await axios.delete(`http://localhost:8081/products/${id}`);
-    console.log("delet call", apiData);
 
-    if (apiData.data.success) {
-      let productsArray = products;
-      let remaningItems = productsArray.filter((item) => item._id !== id);
-      console.log("remaningItems", remaningItems);
-      setProducts(remaningItems);
-      setShowModal(false);
-      // setShowModal(false);  // close the modal when item deleted
-    }
-  };
+  // const deleteProduct = async (id) => {
+  //   // this id i recive from where i am calling this function onClick.
+  //   console.log("this is handle delate function");
+  //   console.log("products array", id);
+
+  //   // let productId = id;
+  //   const apiData = await axios.delete(`http://localhost:8081/products/${id}`);
+  //   console.log("delet call", apiData);
+
+  //   if (apiData.data.success) {
+  //     let productsArray = products;
+  //     let remaningItems = productsArray.filter((item) => item._id !== id);
+  //     console.log("remaningItems", remaningItems);
+  //     setProducts(remaningItems);
+  //     setShowModal(false);
+  //     // setShowModal(false);  // close the modal when item deleted
+  //   }
+  // };
   return (
     // {products?products: <Loader />}
     <div > 
@@ -142,8 +183,6 @@ const ListProduct = () => {
         </div>
         {/* Listing Products */}
         {loading ? <Loader />:
-
-
         <div className="row">
           {products.map((product, index) => (
             <div key={index} className={`${s.productCard} col`}>
@@ -189,7 +228,7 @@ const ListProduct = () => {
                     <Button
                       variant="danger"
                       size="samll"
-                      onClick={() => deleteProduct(product._id)}
+                      onClick={()=>removeProduct(product._id)}
                     >
                       Delete
                     </Button>
@@ -202,25 +241,30 @@ const ListProduct = () => {
                     Edit{" "}
                   </button>
                 </Link>
+                {/* /:id */}
+                <Link to={`/delete-product/${product._id}`}>
                 <button
                   className={s.deleteBtn}
                   onClick={() => setShowModal(true)}
                 >
                   <MdDeleteOutline stroke={1.2} size="1.2rem" /> Delete
                 </button>
+                </Link>
               </div>
             </div>
           ))}
-        </div>
-}
-        {/* <EditProduct products={products} setProducts={setProducts} /> */}
-        {/* Pagination */}
-        <PaginationComponent 
+           <PaginationComponent 
         pageSize={pageSize}
         pageNumber={pageNumber}
         pageLimit={pageLimit}
         paginate={paginate}
         />
+        </div>
+}
+        {/* <EditProduct products={products} setProducts={setProducts} /> */}
+        {/* Pagination */}
+       
+          
       </Card>
 
     </Container>

@@ -1,1 +1,2 @@
 export const LIST_ALL_PRODUCTS = 'LIST_ALL_PRODUCTS';
+export const DELETE_PRODUCT = 'DELETE_PRODUCT';
