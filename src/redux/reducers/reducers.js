@@ -1,9 +1,12 @@
 
-import {  LIST_ALL_PRODUCTS, DELETE_PRODUCT} from "../actions/actionType" 
+import {  LIST_ALL_PRODUCTS, DELETE_PRODUCT, EDIT_PRODUCT, LIST_CATEGORIES, LIST_CURRENCIES} from "../actions/actionType" 
 
 const initialState = {
   productsArray: [],
-  deleteProduct: [null]
+  deleteProduct: [null],
+  editProduct: [null],
+  categoriesArr: [],
+  curenciesArray: []
    
 };
 // console.log("initial state", initialState)
@@ -19,6 +22,21 @@ const ProductsReducer = (state = initialState, action) => {
               ...state,
               deleteProduct: action.payload
             };
+            case EDIT_PRODUCT:
+              return {
+                ...state,
+                editProduct: action.payload
+              };
+              case LIST_CATEGORIES:
+                return {
+                  ...state,
+                  categoriesArr: action.payload
+                };
+                case LIST_CURRENCIES:
+                  return {
+                    ...state,
+                    curenciesArray: action.payload
+                  };
     default:
       return state;
   }

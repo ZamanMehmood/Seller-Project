@@ -31,14 +31,11 @@ const ListProduct = () => {
 
  const productsData = useSelector((state) => state?.ProductsReducer?.productsArray);
  const productsdelete = useSelector((state) => state?.ProductsReducer?.deleteProduct);
- console.log("aaaaaaaaaaaaaaaaaaaaaaaaaa",productsdelete)
+ console.log("delete product by Id",productsdelete)
 
 
- console.log("pppppppppppppppp",productsData)
+//  console.log("pppppppppppppppp",productsData)
 
- 
-      //  console.log("ppppppppppppppp",products?.data?.data[1]._id);
-      //  console.log("toal",productsData?.data?.pagination?.total);
 
  useEffect(() => {
   if(productsData?.data?.data?.length > 0){
@@ -53,46 +50,34 @@ const ListProduct = () => {
 
  console.log("reducer productss arry in react component", products);
  
- 
+
+   // list all products
 useEffect(()=>{
   dispatch(listProducts(pageNumber,pageLimit));
 },[pageNumber])
-
-
-// useEffect(()=>{
-//     dispatch(deleteProduct(id))
-// },[])
-  // useEffect(() => {
-
-  //   // props.listProducts(pageNumber,pageLimit)
-  //   const apiHandler = async () => {
-  //     const data = await axios.get(
-  //       `http://localhost:8081/products/getProducts?page=${pageNumber}&pageLimit=${pageLimit}`
-  //     );
-  //         if(data.data.success == true){
-  //         // setLoading(false)
-  //         setProducts(data.data.data);
-  //         setPageSize(data.data.pagination.total);
-  //       }
-        
-    
-  //     setLoading(false)
-  //   };
-  //   apiHandler();
-  // }, [pageNumber]);  // on page change run useEffect
- 
 
   const paginate = (number) => {
     setLoading(true)
     setPageNumber(number);
   };
 
- 
+    //  delete product using redux
    const removeProduct = () => {
-      console.log("productsData in deleteProduct function ==>", params.id)
+      console.log("productsData in deleteProduct function ==>", params.id);
        dispatch(deleteProduct(params.id));
-   }
+       setShowModal(false);
+      if (productsdelete?.success == true) {
+        // console.log("i am trueeeeeeeeee")
+            let productsArray = productsData?.data?.data;
+            let productId = params.id;
+            let remaningItems = productsArray.filter((product) => product._id !== productId);
+            console.log("remaningItems in success ==================>", remaningItems);
+            setProducts(remaningItems);
+            setShowModal(false);
+          }
+   };
 
+   
 
   // const deleteProduct = async (id) => {
   //   // this id i recive from where i am calling this function onClick.
@@ -113,7 +98,6 @@ useEffect(()=>{
   //   }
   // };
   return (
-    // {products?products: <Loader />}
     <div > 
     <Container>
       {/* Heading Section */}
@@ -228,7 +212,7 @@ useEffect(()=>{
                     <Button
                       variant="danger"
                       size="samll"
-                      onClick={()=>removeProduct(product._id)}
+                      onClick={()=>removeProduct(productsData.data.data._id)}
                     >
                       Delete
                     </Button>

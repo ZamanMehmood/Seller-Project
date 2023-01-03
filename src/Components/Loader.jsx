@@ -1,5 +1,7 @@
 // import { useState } from "react";
-import FadeLoader from "react-spinners/FadeLoader";
+// import FadeLoader from "react-spinners/FadeLoader";
+import Loading from 'react-fullscreen-loading';
+
 
  
 const Loader = () => {
@@ -9,14 +11,8 @@ const Loader = () => {
   return (
     <div className="sweet-loading">
        
-       <FadeLoader
-        color={"#F37A24"}
-        // loading={loading}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      /> 
-     
+       <Loading loading background="#2ecc71" loaderColor="#3498db" />
+
     </div>
   );
 }

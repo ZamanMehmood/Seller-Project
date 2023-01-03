@@ -9,6 +9,10 @@ import "react-toastify/dist/ReactToastify.css";
 import s from "./index.module.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+// import { EDIT_PRODUCT } from "../../../redux/actions/actionType";
+import { editProducts,listCategories,listCurrencies } from "../../../redux/actions/action";
+
 
 const EditProduct = () => {
   const [mediaFiles, setMediaFiles] = useState([]);
@@ -41,45 +45,41 @@ const EditProduct = () => {
 
   // Get ID from URL
   const params = useParams();
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const apiHandler = async () => {
-      console.log("parmass iddddd =>", params.id);
-      const apiCall = await axios.get(
-        `http://localhost:8081/products/${params.id}`
-      );
-      console.log("api call on edit formmmmm ====>", apiCall);
-      setFormValues(apiCall.data);
-    };
-    apiHandler();
-  }, [params.id]);
+ const productsData = useSelector((state) => state?.ProductsReducer?.editProduct);
+  // console.log("products data for edit form in editProduct component", productsData);
+  const categoriesData = useSelector((state) => state?.ProductsReducer?.categoriesArr);
+  // console.log("categories data in edit formmmmmmmmmmmmmmmmmmmmmmm", categoriesData);
+   const currenciesData = useSelector((state) => state?.ProductsReducer?.curenciesArray)
+    // console.log("currenies arry in edit product component", currenciesData)
 
-  useEffect(() => {
-    const apiHandler = async () => {
-      const data = await axios.get("http://localhost:8081/categories");
-      //   console.log(data);
-      const newCategories = data.data.map((category) => {
-        return {
-          label: category.Name,
-          value: category._id,
-        };
-      });
-      setCategaries(newCategories);
-    };
-    apiHandler();
-  }, []);
 
-  // useEffect for currency
-  useEffect(() => {
-    const newApiHandler = async () => {
-      const data = await axios.get(
-        "http://localhost:8081/currencies/getCurrencies"
-      );
-      //   console.log("currency data ===>", data);
-      setAllCurrencies(data.data);
-    };
-    newApiHandler();
-  }, []);
+  //  get categories using redux 
+   useEffect(()=>{
+       dispatch(listCategories(formCategoryValues));
+       const newCategories = categoriesData?.data?.map((category) => {
+              return {
+                label: category.Name,
+                value: category._id,
+              };
+            });
+            setCategaries(newCategories);
+   },[])
+
+  // edit product using redux 
+  useEffect(()=>{
+    //  console.log("params id in useeffetc",params.id)
+    dispatch(editProducts(params.id));
+    setFormValues(productsData)
+  },[params.id])
+  // list currencies using redux
+   useEffect(()=>{
+         dispatch(listCurrencies(allCurrencies))
+           setAllCurrencies(currenciesData.data)
+   },[])
+
+    
     const options = [
       { value: "strawberry", label: "Strawberry" },
       { value: "vanilla", label: "Vanilla" },
@@ -202,6 +202,7 @@ const EditProduct = () => {
       formData,
       config
     );
+    // alert("api updated")
 
     console.log("updated api ====>", updatedApi);
   };
@@ -357,7 +358,7 @@ const EditProduct = () => {
                       defaultValue={formValues.currency}
                       onChange={hanldeChange}
                     >
-                      {allCurrencies.map((ele, i) => (
+                      {currenciesData?.data?.map((ele, i) => (
                         <option key={i} value="USD">
                           {ele.Name}
                         </option>
